@@ -1,0 +1,16 @@
+spring:
+  application:
+    name:  jobScheduler
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: 'jdbc:mysql://127.0.0.1:3306/db1?&useUnicode=true&useSSL=false&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false&serverTimezone=GMT%2B8&zeroDateTimeBehavior=convertToNull'
+    username: 'abc'
+    password: 'abc!@#'
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+    cache-enabled: false
+logging:
+  level:
+    com.github.hxt.scheduler.executor.impl.dao: INFO
