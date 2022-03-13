@@ -27,7 +27,6 @@ target/
 /.nb-gradle/
 build/
 
-/hqwx-business-live-manage/log_file_path_IS_UNDEFINED/
 log_file_path_IS_UNDEFINED/*
 ### VS Code ###
 .vscode/
