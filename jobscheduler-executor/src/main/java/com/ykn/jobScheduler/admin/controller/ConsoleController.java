@@ -1,8 +1,8 @@
 package com.ykn.jobscheduler.admin.controller;
 
-import com.ykn.jobscheduler.admin.bo.JobConfigureSaveRequest;
-import com.ykn.jobscheduler.admin.bo.JobQueryRequest;
-import com.ykn.jobscheduler.admin.bo.ScheduleSaveRequest;
+import com.ykn.jobscheduler.admin.bo.JobConfigureSaveCmd;
+import com.ykn.jobscheduler.admin.bo.JobQry;
+import com.ykn.jobscheduler.admin.bo.ScheduleSaveCmd;
 import com.ykn.jobscheduler.admin.model.JobConfigure;
 import com.ykn.jobscheduler.admin.service.JobConfigService;
 import com.ykn.jobscheduler.common.Return;
@@ -28,20 +28,20 @@ public class ConsoleController {
 
 
     @PostMapping("/job/add")
-    public Return<Long> addJob(@RequestBody JobConfigureSaveRequest configure) {
+    public Return<Long> addJob(@RequestBody JobConfigureSaveCmd configure) {
         Long id = jobConfigService.saveJobConfigure(configure);
         return Return.success(id);
     }
 
     @PostMapping("/job/schedule/config")
-    public Return<Long> saveScheduleConfig(@RequestBody ScheduleSaveRequest request) {
+    public Return<Long> saveScheduleConfig(@RequestBody ScheduleSaveCmd request) {
         jobConfigService.saveScheduleConfigure(request);
         return Return.success(request.getJobId());
     }
 
 
     @GetMapping("/job/list")
-    public Return<List<JobConfigure>> listJob(JobQueryRequest request) {
+    public Return<List<JobConfigure>> listJob(JobQry request) {
         List<JobConfigure> list = jobConfigService.listAllJob(request);
         return Return.success(list);
     }

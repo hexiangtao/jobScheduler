@@ -8,9 +8,9 @@ package com.ykn.jobscheduler.common;
  **/
 public class Return<T> {
 
-    private int code;
-    private T data;
-    private String errMsg;
+    private final int code;
+    private final T data;
+    private final String errMsg;
 
     public static final int SUCCESS = 0;
     public static final int ERROR = -1;

@@ -3,6 +3,8 @@ package com.ykn.jobscheduler.common;
 import lombok.Data;
 
 /**
+ * 线程池信息
+ *
  * @author: hexiangtao
  * @date: 2020/3/26 20:09
  */

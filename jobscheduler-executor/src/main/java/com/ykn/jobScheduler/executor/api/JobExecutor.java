@@ -12,13 +12,7 @@ public interface JobExecutor {
 
 
     /**
-     * 调用任务
-     *
-     * @Author xiangtaohe
-     * @Date 2020/5/12 17:18
-     * @Version 1.0
-     * @Param jobInfo
-     * @Return void
+     * 执行任务
      **/
     void execute(JobInfo jobInfo);
 
@@ -26,10 +20,6 @@ public interface JobExecutor {
     /**
      * 获取执行器当前状态
      *
-     * @Author xiangtaohe
-     * @Date 2020/5/12 17:18
-     * @Version 1.0
-     * @Param
      * @Return boolean
      **/
     boolean isRunning();

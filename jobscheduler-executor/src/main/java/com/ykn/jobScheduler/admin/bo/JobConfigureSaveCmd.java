@@ -15,7 +15,7 @@ import java.io.Serializable;
 @Data
 @EqualsAndHashCode
 @Accessors(chain = true)
-public class JobConfigureSaveRequest implements Serializable {
+public class JobConfigureSaveCmd implements Serializable {
 
 
     private Long id;

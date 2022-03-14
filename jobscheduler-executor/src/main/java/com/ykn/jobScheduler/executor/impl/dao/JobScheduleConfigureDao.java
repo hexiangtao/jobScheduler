@@ -18,9 +18,6 @@ public interface JobScheduleConfigureDao extends BaseMapper<JobScheduleConfigure
 
     /**
      * 根据执行器id更新调度状态
-     * @Author xiangtaohe
-     * @Date  2020/5/12 17:14
-     * @Version 1.0
      * @Param executorId
      * @Param state
      * @Return int

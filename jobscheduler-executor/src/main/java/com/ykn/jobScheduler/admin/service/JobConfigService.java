@@ -5,9 +5,9 @@ import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.ykn.jobscheduler.admin.bo.JobConfigureSaveRequest;
-import com.ykn.jobscheduler.admin.bo.JobQueryRequest;
-import com.ykn.jobscheduler.admin.bo.ScheduleSaveRequest;
+import com.ykn.jobscheduler.admin.bo.JobConfigureSaveCmd;
+import com.ykn.jobscheduler.admin.bo.JobQry;
+import com.ykn.jobscheduler.admin.bo.ScheduleSaveCmd;
 import com.ykn.jobscheduler.admin.model.JobConfigure;
 import com.ykn.jobscheduler.admin.model.JobScheduleConfigure;
 import com.ykn.jobscheduler.common.ThreadPoolInfo;
@@ -42,7 +42,7 @@ public class JobConfigService {
     }
 
     @Transactional
-    public Long saveJobConfigure(JobConfigureSaveRequest req) {
+    public Long saveJobConfigure(JobConfigureSaveCmd req) {
         if (req.getId() != null) {
             updateJobConfigure(req);
             return req.getId();
@@ -75,7 +75,7 @@ public class JobConfigService {
     }
 
 
-    public void saveScheduleConfigure(ScheduleSaveRequest request) {
+    public void saveScheduleConfigure(ScheduleSaveCmd request) {
 
         JobConfigure jobConfigure = jobConfigureDao.selectById(request.getJobId());
         if (jobConfigure == null) {
@@ -116,7 +116,7 @@ public class JobConfigService {
 
     }
 
-    public List<JobConfigure> listAllJob(JobQueryRequest request) {
+    public List<JobConfigure> listAllJob(JobQry request) {
         LambdaQueryWrapper<JobConfigure> query = Wrappers.lambdaQuery();
         if (request.getId() != null) {
             query.eq(JobConfigure::getId, request.getId());
@@ -151,7 +151,7 @@ public class JobConfigService {
     }
 
 
-    private void updateJobConfigure(JobConfigureSaveRequest configure) {
+    private void updateJobConfigure(JobConfigureSaveCmd configure) {
         JobConfigure jobConfigure = jobConfigureDao.selectById(configure.getId());
         if (jobConfigure == null) {
             throw new IllegalArgumentException("could not  found jobConfigure,that id is " + configure.getId());
@@ -160,7 +160,7 @@ public class JobConfigService {
         jobConfigureDao.update(null, update);
     }
 
-    private LambdaUpdateWrapper<JobConfigure> prepareJobUpdateWrapper(JobConfigure jobConfigure, JobConfigureSaveRequest request) {
+    private LambdaUpdateWrapper<JobConfigure> prepareJobUpdateWrapper(JobConfigure jobConfigure, JobConfigureSaveCmd request) {
 
         if (StringUtils.isNotBlank(request.getCloseBeginDate()) && StringUtils.isNotBlank(request.getCloseEndDate())) {
             if (request.getCloseBeginDate().compareTo(request.getCloseEndDate()) >= 0) {

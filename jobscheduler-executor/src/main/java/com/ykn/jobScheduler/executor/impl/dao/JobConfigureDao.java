@@ -23,10 +23,6 @@ public interface JobConfigureDao extends BaseMapper<JobConfigure> {
 
     /**
      * 查询job列表
-     *
-     * @Author xiangtaohe
-     * @Date 2020/5/12 17:13
-     * @Version 1.0
      * @Param executorId
      * @Param jobState
      * @Param scheduleState
@@ -39,10 +35,6 @@ public interface JobConfigureDao extends BaseMapper<JobConfigure> {
 
     /**
      * 根据job id查询单项
-     *
-     * @Author xiangtaohe
-     * @Date 2020/5/12 17:13
-     * @Version 1.0
      * @Param jobId
      * @Return com.github.hxt.scheduler.common.JobInfo
      **/
@@ -52,10 +44,6 @@ public interface JobConfigureDao extends BaseMapper<JobConfigure> {
 
     /**
      * 更新job状态
-     *
-     * @Author xiangtaohe
-     * @Date 2020/5/13 10:33
-     * @Version 1.0
      * @Param id
      * @Param afterState
      * @Param state

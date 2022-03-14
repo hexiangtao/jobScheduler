@@ -25,15 +25,15 @@ import java.util.concurrent.atomic.AtomicBoolean;
  **/
 public class DefaultJobScheduler implements JobScheduler {
 
-    private static Logger log = LoggerFactory.getLogger(DefaultJobScheduler.class);
+    private static final Logger log = LoggerFactory.getLogger(DefaultJobScheduler.class);
 
-    private AtomicBoolean isRunning = new AtomicBoolean(false);
+    private final AtomicBoolean isRunning = new AtomicBoolean(false);
 
-    private ThreadPoolTaskScheduler taskScheduler;
-    private JobExecutor jobExecutor;
+    private final ThreadPoolTaskScheduler taskScheduler;
+    private final JobExecutor jobExecutor;
 
-    private JobService jobService;
-    private String executorName;
+    private final JobService jobService;
+    private final String executorName;
 
 
     public DefaultJobScheduler(JobService jobService) {
@@ -89,6 +89,7 @@ public class DefaultJobScheduler implements JobScheduler {
     }
 
 
+    @Override
     public boolean isRunning() {
         return isRunning.get();
     }

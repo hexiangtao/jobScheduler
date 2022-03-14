@@ -15,7 +15,7 @@ import java.io.Serializable;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @ToString
-public class ScheduleSaveRequest implements Serializable {
+public class ScheduleSaveCmd implements Serializable {
 
     private Long jobId;
 
