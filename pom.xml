@@ -12,6 +12,7 @@
         <module>jobscheduler-admin</module>
         <module>jobscheduler-executor</module>
         <module>jobscheduler-common</module>
+        <module>jobscheduler-rpc</module>
     </modules>
 
     <properties>
