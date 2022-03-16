@@ -1,5 +1,6 @@
-package com.ykn.jobscheduler.rpc.net.impl.netty;
+package com.ykn.jobscheduler.rpc.net.impl.netty.server;
 
+import com.alibaba.fastjson.JSON;
 import com.ykn.jobscheduler.rpc.RpcRequest;
 import com.ykn.jobscheduler.rpc.RpcResponse;
 import com.ykn.jobscheduler.rpc.codec.Serializer;
@@ -66,9 +67,9 @@ public class NettyHttpServerHandler extends SimpleChannelInboundHandler<FullHttp
 
     private void process(ChannelHandlerContext ctx, FullHttpRequest msg) {
         byte[] data = ByteBufUtil.getBytes(msg.content());
-        //TODO
         RpcRequest request = serializer.deserialize(data, RpcRequest.class);
-        byte[] responseBytes = serializer.serialize(new RpcResponse("test", "test", "test".getBytes(StandardCharsets.UTF_8)));
+        System.out.println("receive req:" + JSON.toJSONString(request));
+        byte[] responseBytes = serializer.serialize(new RpcResponse("test", "test", "1".getBytes(StandardCharsets.UTF_8)));
         boolean keepAlive = HttpUtil.isKeepAlive(msg);
         writeResponse(ctx, keepAlive, responseBytes);
     }

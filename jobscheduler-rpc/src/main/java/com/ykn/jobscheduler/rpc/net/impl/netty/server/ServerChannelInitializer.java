@@ -1,4 +1,4 @@
-package com.ykn.jobscheduler.rpc.net.impl.netty;
+package com.ykn.jobscheduler.rpc.net.impl.netty.server;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;

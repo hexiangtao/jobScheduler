@@ -1,4 +1,4 @@
-package com.ykn.jobscheduler.rpc.net.impl.netty;
+package com.ykn.jobscheduler.rpc.net.server;
 
 /**
  * @author hexiangtao
@@ -10,8 +10,6 @@ public interface Server {
      * 启动容器
      */
     void start();
-
-
 
 
 }

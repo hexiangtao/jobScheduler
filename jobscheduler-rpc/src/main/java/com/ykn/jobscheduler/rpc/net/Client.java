@@ -12,9 +12,9 @@ public interface Client {
     /**
      * 发送请求
      *
-     * @param address
      * @param request
      */
-    void send(String address, RpcRequest request);
+    void send(RpcRequest request);
+
 
 }
