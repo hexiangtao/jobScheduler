@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
  **/
 @Data
 @NoArgsConstructor
-public class RpcResponse {
+public class RpcResponse<T> {
 
 
     /**
@@ -33,9 +33,9 @@ public class RpcResponse {
      *
      * @return
      */
-    private byte[] body;
+    private T body;
 
-    public RpcResponse(String requestId, String errMsg, byte[] body) {
+    public RpcResponse(String requestId, String errMsg, T body) {
         this.requestId = requestId;
         this.errMsg = errMsg;
         this.body = body;

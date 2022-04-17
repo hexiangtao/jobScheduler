@@ -15,7 +15,7 @@ public class ClientTest {
     public static void main(String[] args) throws Exception {
         Client client = new NettyClient("127.0.0.1", 80);
         RpcRequest req = new RpcRequest();
-        req.setBody("HELLO".getBytes(StandardCharsets.UTF_8));
+        req.setBody("HELLO");
         client.send(req);
     }
 }

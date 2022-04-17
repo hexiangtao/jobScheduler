@@ -11,43 +11,47 @@ import java.io.Serializable;
  **/
 @Data
 @NoArgsConstructor
-public class RpcRequest implements Serializable {
+public class RpcRequest<T> implements Serializable {
+
+    public static final String HEADER_NAME_REQUEST_ID = "x-requestId";
+    public static final String HEADER_TIMESTAMP = "x-timestamp";
+    public static final String HEADER_ACCESS_TOKEN = "x-accessToken";
+
+
+    private String requestUri;
+
+    private String httpMethod;
+
+    private boolean keepAlive;
 
     /**
      * 请求唯一标识
-     *
-     * @return
      */
     private String requestId;
 
 
     /**
      * 请求时间
-     *
-     * @return
      */
-    private long timestamp;
+    private Long timestamp;
 
 
     /**
      * 请求token
-     *
-     * @return
      */
     private String accessToken;
 
     /**
      * 请求体
-     *
-     * @return
      */
-    private byte[] body;
+    private T body;
 
-
-    public RpcRequest(String requestId, long timestamp, String accessToken, byte[] body) {
+    public RpcRequest(String requestUri, String httpMethod, boolean keepAlive, String requestId, Long timestamp, String accessToken) {
+        this.requestUri = requestUri;
+        this.httpMethod = httpMethod;
+        this.keepAlive = keepAlive;
         this.requestId = requestId;
         this.timestamp = timestamp;
         this.accessToken = accessToken;
-        this.body = body;
     }
 }
